@@ -21,4 +21,4 @@ jobs:
 
       - name: get environment variables
         run: |
-          echo $my_var
+          echo {{ env.my_var }}
