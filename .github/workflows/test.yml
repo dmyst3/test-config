@@ -28,6 +28,11 @@ jobs:
     needs: load_env_vars
     runs-on: ubuntu-latest
     steps:
+      - uses: cardinalby/export-env-action@v2
+        with:
+          envFile: '.env'
+          expand: 'true'
+          
       - name: Use environment variables
         run: |
           echo ${{ env.VARIABLE1 }}
