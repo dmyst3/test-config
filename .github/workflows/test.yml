@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "Loading environment variables from .env file..."
           echo "name=ahmad" >> $GITHUB_OUTPUT
-          echo {{ env.name }}
+          echo ${{ env.name }}
         shell: bash
         
 
