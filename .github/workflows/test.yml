@@ -14,6 +14,10 @@ jobs:
       - name: set environment variables
         run: |
           echo "my_var=ahmad" >> $GITHUB_ENV
+      - name: test value was added
+        run: |
+          eecho ${{ env.my_var }}
+          
   RETRIEVE-ENV-VAR:
     needs: SET-ENV-VAR
     runs-on: ubuntu-latest
