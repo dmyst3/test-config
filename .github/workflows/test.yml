@@ -16,7 +16,7 @@ jobs:
         id: dotenv
         run: |
           echo "Loading environment variables from .env file..."
-          echo "::set-output name=env::$(cat .env)"
+          echo "name=env::$(cat .env)" >> $GITHUB_OUTPUT
         shell: bash
         
       - name: Set environment variables
