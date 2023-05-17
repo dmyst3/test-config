@@ -17,6 +17,11 @@ jobs:
           while IFS= read -r line; do
             echo "$line" >> $GITHUB_ENV
           done < .env
+          
+      - name: print environment variables
+        run: |
+          echo "Variable 1: $VARIABLE1"
+          echo "Variable 2: $VARIABLE2"
 
   use_env_vars:
     needs: load_env_vars
