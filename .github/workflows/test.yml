@@ -21,9 +21,6 @@ jobs:
           echo "name=env::$(cat .env)" >> $GITHUB_OUTPUT
         shell: bash
         
-      - name: Set environment variables
-        run: |
-          echo "${{ steps.dotenv.outputs.env }}" >> $GITHUB_ENV
 
   test:
     runs-on: ubuntu-latest
