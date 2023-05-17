@@ -8,15 +8,14 @@ on:
 jobs:
   SET-ENV-VAR:
     runs-on: ubuntu-latest
+    outputs:
+      myVariable: ${{ steps.setEnv.outputs.myVariable }}
     steps:
       - uses: actions/checkout@v3
 
       - name: set environment variables
         run: |
-          echo "my_var=ahmad" >> $GITHUB_ENV
-      - name: test value was added
-        run: |
-          echo ${{ env.my_var }}
+          echo "::set-output name=myVariable::ahmad"
           
   RETRIEVE-ENV-VAR:
     needs: SET-ENV-VAR
@@ -25,4 +24,4 @@ jobs:
 
       - name: get environment variables
         run: |
-          echo ${{ env.my_var }}
+          echo ${{ needs.SET-ENV-VAR.outputs.myVariable }}
