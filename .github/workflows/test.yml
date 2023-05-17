@@ -17,7 +17,8 @@ jobs:
       - name: Load environment variables
         run: cat .env >> "$GITHUB_OUTPUT"
           
-
+      - name: Load environment variables
+        run: echo "${{ needs.load_env_vars.outputs.VARIABLE1 }}
   use_env_vars:
     needs: load_env_vars
     runs-on: ubuntu-latest
