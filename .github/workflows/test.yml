@@ -14,16 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - uses: cardinalby/export-env-action@v2
-        id: exportStep
-        with:
-          envFile: '.env'
-          export: 'false'
+      - name: Load environment variables
+        run: cat .env >> "$GITHUB_OUTPUT"
           
-      - name: print environment variables
-        run: |
-          echo ${{ env.VARIABLE1 }}
-          echo ${{ env.VARIABLE2 }}
 
   use_env_vars:
     needs: load_env_vars
@@ -32,4 +25,4 @@ jobs:
           
       - name: Use environment variables
         run: |
-          echo ${{ steps.exportStep.outputs.VARIABLE1 }}
+          echo ${{ needs.load_env_vars.outputs.VARIABLE1 }}
