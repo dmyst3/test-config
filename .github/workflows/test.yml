@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.dotenv.outputs.env }}
+      output1: ${{ steps.dotenv.outputs.env.VARIABLE1 }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
