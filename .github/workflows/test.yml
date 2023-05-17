@@ -32,4 +32,4 @@ jobs:
           
       - name: Use environment variables
         run: |
-          echo {{ steps.exportStep.outputs.VARIABLE1 }}
+          echo ${{ steps.exportStep.outputs.VARIABLE1 }}
