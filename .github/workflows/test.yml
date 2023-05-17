@@ -29,4 +29,4 @@ jobs:
     steps:
       - name: Use environment variables
         run: |
-          echo "Variable 1: ${{ env.VARIABLE1 }}
+          echo ${{ env.VARIABLE1 }}
