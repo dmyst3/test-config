@@ -14,3 +14,10 @@ jobs:
       - name: set environment variables
         run: |
           echo "my_var=ahmad" >> $GITHUB_ENV
+  RETRIEVE-ENV-VAR:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: get environment variables
+        run: |
+          echo '$my_var'
