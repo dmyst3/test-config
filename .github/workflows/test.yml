@@ -15,10 +15,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Load environment variables
-        run: |
-          while IFS= read -r line; do
-            echo "$line" >> $GITHUB_ENV
-          done < .env
+        run: cat ${{ .env }} >> $GITHUB_ENV
           
       - name: print environment variables
         run: |
