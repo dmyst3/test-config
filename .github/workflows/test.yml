@@ -9,6 +9,9 @@ jobs:
   load_env_vars:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
       - name: Load environment variables
         run: |
           while IFS= read -r line; do
