@@ -16,7 +16,7 @@ jobs:
           echo "my_var=ahmad" >> $GITHUB_ENV
       - name: test value was added
         run: |
-          eecho ${{ env.my_var }}
+          echo ${{ env.my_var }}
           
   RETRIEVE-ENV-VAR:
     needs: SET-ENV-VAR
