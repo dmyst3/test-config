@@ -15,6 +15,7 @@ jobs:
         run: |
           echo "my_var=ahmad" >> $GITHUB_ENV
   RETRIEVE-ENV-VAR:
+    needs: SET-ENV-VAR
     runs-on: ubuntu-latest
     steps:
 
