@@ -18,7 +18,7 @@ jobs:
         id: exportStep
         with:
           envFile: '.env'
-          expand: 'true'
+          export: 'true'
           
       - name: print environment variables
         run: |
