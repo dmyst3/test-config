@@ -20,3 +20,4 @@ jobs:
           env | sort > variables.txt
           cat variables.txt
         id: capture_variables
+
