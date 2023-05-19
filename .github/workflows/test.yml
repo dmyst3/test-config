@@ -8,20 +8,16 @@ on:
 env:
   test-var: "ahmad"
 jobs:
-  load_env_vars:
+  Capture-variables:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Load environment variables
-        run: echo "VARIABLE1=BOOM" >> "$GITHUB_OUTPUT"
-          
-  use_env_vars:
-    needs: load_env_vars
-    runs-on: ubuntu-latest
-    steps:
-          
-      - name: Use environment variables
+      - name: Capture variables
         run: |
-          echo ${{ needs.load_env_vars.outputs.VARIABLE1 }}
+          echo "Variable snapshot:"
+          env | sort > variables.txt
+          cat variables.txt
+        id: capture_variables
+
