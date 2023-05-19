@@ -19,6 +19,6 @@ jobs:
           echo "Variable snapshot:"
           env | sort > variables.txt
           cat variables.txt
-          echo "$AHMADVAR"
+          echo $"{{ VARS }}"
         id: capture_variables
 
