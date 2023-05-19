@@ -8,28 +8,15 @@ on:
 env:
   test-var: "ahmad"
 jobs:
-  load_env_vars:
+  Capture-variables:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - uses: cardinalby/export-env-action@v2
-        id: exportStep
-        with:
-          envFile: '.env'
-          export: 'false'
-          
-      - name: print environment variables
+      - name: Capture variables
         run: |
-          echo ${{ env.VARIABLE1 }}
-          echo ${{ env.VARIABLE2 }}
-
-  use_env_vars:
-    needs: load_env_vars
-    runs-on: ubuntu-latest
-    steps:
-          
-      - name: Use environment variables
-        run: |
-          echo ${{ steps.exportStep.outputs.VARIABLE1 }}
+          echo "Variable snapshot:"
+          env | sort > variables.txt
+          cat variables.txt
+        id: capture_variables
