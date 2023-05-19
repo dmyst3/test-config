@@ -17,7 +17,8 @@ jobs:
       - name: Capture variables
         run: |
           echo "Variable snapshot:"
-          env.CI | sort > variables.txt
+          env | sort > variables.txt
           cat variables.txt
+          echo "$AHMADVAR"
         id: capture_variables
 
